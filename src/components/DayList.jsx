@@ -11,7 +11,7 @@ export default function DayList({ itinerary, onDayClick }) {
     };
 
     return (
-        <div className="flex flex-col gap-4 pb-8">
+        <div className="flex flex-col gap-4 pb-24 px-4 pt-6 overflow-y-auto h-full">
             {itinerary.map((day, index) => (
                 <a
                     key={index}
