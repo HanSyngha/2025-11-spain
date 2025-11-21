@@ -4,7 +4,7 @@ export const itinerary = [
     {
         day: "Day 1",
         date: "11월 27일 (목)",
-        title: "출국 & 상하이 레이오버",
+        title: "출국 & 상하이 레이오버 (꽉 찬 일정)",
         location: "Shanghai, China",
         thumbnail: "/images/shanghai.png",
         coordinates: [31.2304, 121.4737],
@@ -25,36 +25,43 @@ export const itinerary = [
             },
             {
                 time: "12:00",
-                title: "상하이 시내 이동",
-                description: "자기부상열차(Maglev) 및 지하철 2호선 이용 (약 45분)",
+                title: "상하이 시내 이동 (Maglev)",
+                description: "자기부상열차로 롱양루역까지 8분 이동 후 지하철 환승",
                 type: "drive",
                 coordinates: [31.2005, 121.5868]
             },
             {
                 time: "13:00",
-                title: "난징동로 보행가",
-                description: "상하이 최대 번화가 산책 및 점심 식사 (샤오롱바오 추천)",
+                title: "예원 (Yuyuan Garden) & 옛 거리",
+                description: "명나라 시대의 정원과 전통 시장 구경, 남상만두에서 샤오롱바오 점심",
                 type: "activity",
-                coordinates: [31.2342, 121.4713]
+                coordinates: [31.2272, 121.4921]
             },
             {
                 time: "15:00",
-                title: "와이탄 (The Bund)",
-                description: "황푸강변 산책, 동방명주 및 스카이라인 감상",
+                title: "와이탄 (The Bund) 산책",
+                description: "황푸강변을 따라 걸으며 동방명주와 스카이라인 감상",
                 type: "activity",
                 coordinates: [31.2366, 121.4856]
             },
             {
-                time: "21:00",
-                title: "공항 복귀 및 체크인",
-                description: "지하철 및 자기부상열차 이용하여 공항 복귀",
+                time: "16:30",
+                title: "난징동로 & 신천지 (Xintiandi)",
+                description: "상하이의 명동 난징동로와 세련된 카페 거리 신천지에서 커피 한 잔 (추천)",
+                type: "activity",
+                coordinates: [31.2235, 121.4758]
+            },
+            {
+                time: "18:30",
+                title: "공항으로 복귀",
+                description: "퇴근 시간 트래픽 고려하여 여유 있게 출발 (Maglev 막차 확인)",
                 type: "drive",
                 coordinates: [31.1443, 121.8083]
             },
             {
                 time: "00:05 (+1)",
                 title: "바르셀로나행 출발 (MU701)",
-                description: "약 14시간 비행",
+                description: "약 14시간 비행, 기내식 및 휴식",
                 type: "flight",
                 coordinates: [31.1443, 121.8083]
             }
@@ -63,7 +70,7 @@ export const itinerary = [
     {
         day: "Day 2",
         date: "11월 28일 (금)",
-        title: "바르셀로나 도착 & 코르도바 이동",
+        title: "바르셀로나 도착 & 코르도바 이동 (로드트립)",
         location: "Cordoba, Spain",
         thumbnail: "/images/cordoba.png",
         coordinates: [37.8882, -4.7794],
@@ -85,10 +92,24 @@ export const itinerary = [
             },
             {
                 time: "10:30",
-                title: "코르도바 이동",
-                description: "약 8시간 30분 소요 (장거리 운전, 중간 휴게소 필수)",
+                title: "코르도바 이동 시작",
+                description: "총 8시간 30분 소요 예상, 중간 경유지 방문",
                 type: "drive",
-                coordinates: [39.4699, -0.3763] // Waypoint
+                coordinates: [39.4699, -0.3763]
+            },
+            {
+                time: "13:00",
+                title: "발렌시아 인근 휴게소 점심",
+                description: "간단한 식사 및 주유",
+                type: "activity",
+                coordinates: [39.4699, -0.3763]
+            },
+            {
+                time: "16:00",
+                title: "우베다 (Úbeda) 잠시 경유 (추천)",
+                description: "올리브 밭을 지나 만나는 르네상스 건축의 보석 같은 마을",
+                type: "activity",
+                coordinates: [38.0119, -3.3715]
             },
             {
                 time: "19:00",
@@ -109,7 +130,7 @@ export const itinerary = [
     {
         day: "Day 3",
         date: "11월 29일 (토)",
-        title: "코르도바 & 론다",
+        title: "코르도바 & 론다 (절벽 위 산책)",
         location: "Ronda, Spain",
         thumbnail: "/images/ronda.png",
         coordinates: [36.7423, -5.1671],
@@ -143,9 +164,16 @@ export const itinerary = [
                 coordinates: [36.7407, -5.1659]
             },
             {
-                time: "17:00",
+                time: "16:30",
+                title: "타호 협곡 트레킹 (추천)",
+                description: "다리 아래로 내려가서 올려다보는 뷰포인트까지 가벼운 산책",
+                type: "activity",
+                coordinates: [36.7395, -5.1665]
+            },
+            {
+                time: "17:30",
                 title: "론다 투우장 & 구시가지",
-                description: "스페인에서 가장 오래된 투우장 외관 관람 및 절벽 산책",
+                description: "스페인에서 가장 오래된 투우장 외관 관람",
                 type: "activity",
                 coordinates: [36.7423, -5.1671]
             },
@@ -168,7 +196,7 @@ export const itinerary = [
     {
         day: "Day 4",
         date: "11월 30일 (일)",
-        title: "세비야 집중 탐구",
+        title: "세비야 집중 탐구 & 숨은 명소",
         location: "Sevilla, Spain",
         thumbnail: "/images/sevilla.png",
         coordinates: [37.3891, -5.9845],
@@ -190,16 +218,23 @@ export const itinerary = [
                 coordinates: [37.3858, -5.9931]
             },
             {
-                time: "16:00",
+                time: "15:00",
+                title: "산타 크루즈 지구 골목 탐방 (추천)",
+                description: "유대인 지구의 좁은 골목길과 예쁜 파티오 구경",
+                type: "activity",
+                coordinates: [37.3865, -5.9880]
+            },
+            {
+                time: "16:30",
                 title: "스페인 광장 (Plaza de España)",
                 description: "김태희 CF 촬영지, 타일 벤치 감상 및 보트 타기",
                 type: "activity",
                 coordinates: [37.3772, -5.9869]
             },
             {
-                time: "18:00",
-                title: "메트로폴 파라솔",
-                description: "세계 최대 목조 건축물, 일몰 감상",
+                time: "18:30",
+                title: "메트로폴 파라솔 (Las Setas)",
+                description: "세계 최대 목조 건축물, 일몰 감상 및 야경",
                 type: "activity",
                 coordinates: [37.3933, -5.9917]
             },

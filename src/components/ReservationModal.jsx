@@ -21,8 +21,8 @@ export default function ReservationModal({ event, onClose }) {
     };
 
     return (
-        <div className="fixed inset-0 z-50 flex items-end md:items-center justify-center md:p-4 bg-black/90 backdrop-blur-sm animate-fade-in" onClick={onClose}>
-            <div className="relative w-full max-w-2xl bg-card-light dark:bg-card-dark md:rounded-xl rounded-t-2xl overflow-hidden shadow-2xl h-[95dvh] md:h-auto md:max-h-[90vh] flex flex-col" onClick={e => e.stopPropagation()}>
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90 backdrop-blur-sm animate-fade-in" onClick={onClose}>
+            <div className="relative w-full max-w-2xl bg-card-light dark:bg-card-dark rounded-xl overflow-hidden shadow-2xl max-h-[90vh] flex flex-col" onClick={e => e.stopPropagation()}>
                 {/* Header */}
                 <div className="p-4 border-b border-border-light dark:border-border-dark flex justify-between items-center bg-background-light dark:bg-background-dark shrink-0 z-10">
                     <div>
@@ -75,10 +75,10 @@ export default function ReservationModal({ event, onClose }) {
                 </div>
 
                 {/* Footer */}
-                <div className="p-4 border-t border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark flex justify-end shrink-0 pb-8 md:pb-4 z-10">
+                <div className="p-4 border-t border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark flex justify-end shrink-0 z-10">
                     <button
                         onClick={onClose}
-                        className="px-4 py-2 bg-primary text-white font-medium rounded-lg hover:bg-primary-dark transition-colors w-full md:w-auto"
+                        className="px-4 py-2 bg-primary text-white font-medium rounded-lg hover:bg-primary-dark transition-colors"
                     >
                         닫기
                     </button>

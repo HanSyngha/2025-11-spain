@@ -39,24 +39,29 @@ export default function DayDetail({ day, onBack, onImageClick }) {
     };
 
     return (
-        <div className="flex flex-col h-full bg-background-light dark:bg-background-dark">
-            {/* Map Section - Fixed Height */}
-            <div className="sticky top-0 z-0 w-full h-[280px] shrink-0 shadow-sm">
+        <div className="flex flex-col h-full bg-background-light dark:bg-background-dark overflow-hidden relative">
+            {/* Map Section - Sticky at top */}
+            <div className="w-full h-[35vh] shrink-0 z-0 relative">
                 <MapComponent
                     events={day.events}
                     center={mapCenter}
                     zoom={mapZoom}
                 />
+                {/* Gradient overlay for smooth transition */}
+                <div className="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-background-light/20 to-transparent dark:from-background-dark/20 pointer-events-none"></div>
             </div>
 
             {/* Content Section - Scrollable */}
-            <div className="flex-1 overflow-y-auto bg-background-light dark:bg-background-dark relative z-10 -mt-4 rounded-t-3xl border-t border-gray-100 dark:border-gray-800 shadow-[0_-4px_12px_-2px_rgba(0,0,0,0.08)]">
-                {/* Section Header */}
-                <div className="px-6 pt-8 pb-4">
+            <div className="flex-1 overflow-y-auto bg-background-light dark:bg-background-dark relative z-10 shadow-[0_-4px_16px_rgba(0,0,0,0.1)] rounded-t-3xl -mt-6">
+                {/* Sticky Header inside scroll view */}
+                <div className="sticky top-0 z-20 bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-md px-6 pt-6 pb-4 border-b border-gray-100 dark:border-gray-800 rounded-t-3xl">
                     <div className="flex items-center justify-between mb-1">
                         <h2 className="text-text-light dark:text-text-dark text-2xl font-bold leading-tight tracking-tight">
                             {day.title}
                         </h2>
+                        <button onClick={onBack} className="p-2 -mr-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full transition-colors">
+                            <span className="material-symbols-outlined">close</span>
+                        </button>
                     </div>
                     <p className="text-subtext-light dark:text-subtext-dark text-sm font-medium flex items-center gap-1">
                         <span className="material-symbols-outlined text-base">calendar_today</span>
@@ -65,7 +70,7 @@ export default function DayDetail({ day, onBack, onImageClick }) {
                 </div>
 
                 {/* Timeline */}
-                <div className="grid grid-cols-[auto_1fr] gap-x-5 px-6 pb-12">
+                <div className="grid grid-cols-[auto_1fr] gap-x-5 px-6 py-6 pb-24">
                     {day.events.map((event, index) => {
                         const isLast = index === day.events.length - 1;
                         const colorClass = getColorClass(event.type);
@@ -76,12 +81,12 @@ export default function DayDetail({ day, onBack, onImageClick }) {
                                 <div className="flex flex-col items-center pt-1 relative">
                                     {/* Connector Line */}
                                     {!isLast && (
-                                        <div className="absolute top-10 bottom-[-8px] w-[2px] bg-gray-100 dark:bg-gray-800"></div>
+                                        <div className="absolute top-10 bottom-[-24px] w-[2px] bg-gray-100 dark:bg-gray-800"></div>
                                     )}
 
                                     <button
                                         onClick={() => handleEventClick(event)}
-                                        className={`flex items-center justify-center size-10 rounded-full ${colorClass} z-10 transition-transform active:scale-95 shadow-sm shrink-0`}
+                                        className={`flex items-center justify-center size-10 rounded-full ${colorClass} z-10 transition-transform active:scale-95 shadow-sm shrink-0 bg-background-light dark:bg-background-dark ring-4 ring-background-light dark:ring-background-dark`}
                                     >
                                         <span className="material-symbols-outlined text-xl">{getIcon(event.type)}</span>
                                     </button>
