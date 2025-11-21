@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+
+<html class="light" lang="ko"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Travel Itinerary</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#2b8cee",
+            "background-light": "#f6f7f8",
+            "background-dark": "#101922",
+            "text-light": "#111418",
+            "text-dark": "#f1f5f9",
+            "subtext-light": "#617589",
+            "subtext-dark": "#94a3b8",
+            "card-light": "#ffffff",
+            "card-dark": "#1e293b",
+            "accent": "#f97316"
+          },
+          fontFamily: {
+            "display": ["Plus Jakarta Sans", "sans-serif"]
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-display bg-background-light dark:bg-background-dark">
+<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<!-- Top App Bar -->
+<div class="sticky top-0 z-10 flex items-center bg-card-light dark:bg-card-dark p-4 justify-between border-b border-gray-200 dark:border-gray-700">
+<div class="flex size-12 shrink-0 items-center justify-start text-text-light dark:text-text-dark">
+<span class="material-symbols-outlined text-2xl">arrow_back</span>
+</div>
+<h2 class="text-text-light dark:text-text-dark text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center">Paris in 5 Days</h2>
+<div class="flex w-12 items-center justify-end">
+<button class="flex cursor-pointer items-center justify-center rounded-lg h-12 text-text-light dark:text-text-dark gap-2 text-base font-bold leading-normal tracking-[0.015em] min-w-0 p-0">
+<span class="material-symbols-outlined text-2xl">more_vert</span>
+</button>
+</div>
+</div>
+<!-- Main Itinerary List -->
+<main class="flex-grow px-4 pt-6 pb-24">
+<div class="flex flex-col gap-4">
+<!-- Day 1 Card -->
+<a class="block bg-card-light dark:bg-card-dark p-4 rounded-xl shadow-sm hover:shadow-md transition-shadow" href="#">
+<div class="flex gap-4 items-center">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-lg size-[70px]" data-alt="Scenic view of the Eiffel Tower" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD41BbX_UH7zA3rv1Mwk9jIQHK3gb3fQ_IRFLn8y9M2vKwDlYE4xq9ajcB_sy04L_oc0Xe9dllGfhDtUG3m1dr-Sj6JqMb4cwEKMHtCuMzkU45Dre2cGawOTKREMs3WIVZ8byEjCWHN16TXDEgWP3W-kO_KY3aCdvNYc-hc3kMr49QKI6ZXA6saId_01aXNU2Yxc_VhINEcXaq4f4OXpxJKcELkku9GPl4XR-thR0M06_RCAcqIWMB4vupxvBzn8iNU1VbV6AFWvQEp");'></div>
+<div class="flex flex-1 flex-col justify-center">
+<p class="text-text-light dark:text-text-dark text-base font-bold leading-normal">Day 1</p>
+<p class="text-subtext-light dark:text-subtext-dark text-sm font-normal leading-normal">Eiffel Tower, Louvre Museum...</p>
+<p class="text-subtext-light dark:text-subtext-dark text-sm font-normal leading-normal pt-1">October 26</p>
+</div>
+<div class="shrink-0">
+<div class="text-text-light dark:text-text-dark flex size-7 items-center justify-center">
+<span class="material-symbols-outlined text-2xl">chevron_right</span>
+</div>
+</div>
+</div>
+</a>
+<!-- Day 2 Card -->
+<a class="block bg-card-light dark:bg-card-dark p-4 rounded-xl shadow-sm hover:shadow-md transition-shadow" href="#">
+<div class="flex gap-4 items-center">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-lg size-[70px]" data-alt="Interior view of Notre-Dame Cathedral" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDPkW2Boz54c-8RqHEYoh7VTXKBBgkN0nW2L91Ajw9DjV8a4yAZlRBEMozDR5JNN5LKTGE5lcefTC8m3YbOS3fw3guRiTDIyNXXzddvoRWbROyC1xFLRo9bjN4q2WdXs6Qb1SK8eI_h4Ijll26jQp8g2spiJ-Cj_8ssccN57SMIfSj6Z5coK8zxt5bMwcvWQ2DOUeQB70Au9qMxQQCQnfaO_qNVwSwn0wJ7rNc93i1mExkjoyBZl7Fq41zQEaYnCBcm2Mz7XmhapWLj");'></div>
+<div class="flex flex-1 flex-col justify-center">
+<p class="text-text-light dark:text-text-dark text-base font-bold leading-normal">Day 2</p>
+<p class="text-subtext-light dark:text-subtext-dark text-sm font-normal leading-normal">Notre-Dame, Musée d'Orsay...</p>
+<p class="text-subtext-light dark:text-subtext-dark text-sm font-normal leading-normal pt-1">October 27</p>
+</div>
+<div class="shrink-0">
+<div class="text-text-light dark:text-text-dark flex size-7 items-center justify-center">
+<span class="material-symbols-outlined text-2xl">chevron_right</span>
+</div>
+</div>
+</div>
+</a>
+<!-- Day 3 Card -->
+<a class="block bg-card-light dark:bg-card-dark p-4 rounded-xl shadow-sm hover:shadow-md transition-shadow" href="#">
+<div class="flex gap-4 items-center">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-lg size-[70px]" data-alt="Gardens of the Palace of Versailles" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDa8v_GeYLvtMhXyN3oHQvSKsORNStnfYy9MTs1EE1rj3uCsXpDhkFIJf3Tj5a4opRYT2395vhlAgGBqeIeqaYPghJimjG2MEIz9RaHqp9P926bvbdA_sBtRRS6muVaDdj4-EqXUvsfcwpGb_bWOXB6MlYPrGlqx_snD-pFSk3VdRvg2qjDYn8ooZjkwSj1XB6IarpmYmGQQ4GNnWeKmEfD2Hsnttvxc8EwaZgWT9EpBIOivRy8J8pdCxNO7nmenvZ3wrQn2rEot4ym");'></div>
+<div class="flex flex-1 flex-col justify-center">
+<p class="text-text-light dark:text-text-dark text-base font-bold leading-normal">Day 3</p>
+<p class="text-subtext-light dark:text-subtext-dark text-sm font-normal leading-normal">Palace of Versailles, Montmartre...</p>
+<p class="text-subtext-light dark:text-subtext-dark text-sm font-normal leading-normal pt-1">October 28</p>
+</div>
+<div class="shrink-0">
+<div class="text-text-light dark:text-text-dark flex size-7 items-center justify-center">
+<span class="material-symbols-outlined text-2xl">chevron_right</span>
+</div>
+</div>
+</div>
+</a>
+<!-- Day 4 Card -->
+<a class="block bg-card-light dark:bg-card-dark p-4 rounded-xl shadow-sm hover:shadow-md transition-shadow" href="#">
+<div class="flex gap-4 items-center">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-lg size-[70px]" data-alt="View of the Arc de Triomphe from Champs-Élysées" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCdXzMOquE60jz5P4L3EgM4itvz1S2s5sOdWOXW6DWlDYUuvAWG10mM2IrZGQxqVeoi_jOPE-Qy-46LBnlKX00GAIlcFIIxEDk8cI3630AdRsuGGtQ-QX__M1XEmToppo9wObReOj8qkpZLs4Pio6u6w7f6AtWNdi6Bf4zzRBwAM1kD3-MqJFmYDs0Iz4uoehPBdyAO82QZmb9GCDmjMi4hjrFtDPSEMikjJztzqhTVJVbqIklMGhD8t_IAK5zSWhH-Lj4vot3pMEPx");'></div>
+<div class="flex flex-1 flex-col justify-center">
+<p class="text-text-light dark:text-text-dark text-base font-bold leading-normal">Day 4</p>
+<p class="text-subtext-light dark:text-subtext-dark text-sm font-normal leading-normal">Champs-Élysées, Arc de Triomphe...</p>
+<p class="text-subtext-light dark:text-subtext-dark text-sm font-normal leading-normal pt-1">October 29</p>
+</div>
+<div class="shrink-0">
+<div class="text-text-light dark:text-text-dark flex size-7 items-center justify-center">
+<span class="material-symbols-outlined text-2xl">chevron_right</span>
+</div>
+</div>
+</div>
+</a>
+<!-- Day 5 Card -->
+<a class="block bg-card-light dark:bg-card-dark p-4 rounded-xl shadow-sm hover:shadow-md transition-shadow" href="#">
+<div class="flex gap-4 items-center">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-lg size-[70px]" data-alt="Abstract view inside a modern airport terminal" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDsF9rY57dr7kE3mUIHFtUY7sH5sNuZIouzrQ0gur62JsW6EKKfKumm3f0SzNp7w1-OUfDrcQpTDaI0Zw_XfMZGz4aq3CedWVuDfqq1WjPpcaLpfCgn4RYZ9D-FqoiHn9S4hbDfbRBd-g8doa6CrfawieIPjeCUbj-FYF0AgbOAJfhJIzTUVxV1mPrp5uUlFY7OVh2Sd3Xs2X8-jO3EL2SC6SMVc9qcIs_veu_o5tRHVwNuykLhe0UnA7SUnRsnv4QdGGFwbwY1wRR-");'></div>
+<div class="flex flex-1 flex-col justify-center">
+<p class="text-text-light dark:text-text-dark text-base font-bold leading-normal">Day 5</p>
+<p class="text-subtext-light dark:text-subtext-dark text-sm font-normal leading-normal">Shopping, Departure</p>
+<p class="text-subtext-light dark:text-subtext-dark text-sm font-normal leading-normal pt-1">October 30</p>
+</div>
+<div class="shrink-0">
+<div class="text-text-light dark:text-text-dark flex size-7 items-center justify-center">
+<span class="material-symbols-outlined text-2xl">chevron_right</span>
+</div>
+</div>
+</div>
+</a>
+</div>
+</main>
+<!-- Floating Action Button -->
+<div class="fixed bottom-6 right-6 z-20">
+<button class="flex h-14 w-14 items-center justify-center rounded-full bg-accent text-white shadow-lg transition-transform hover:scale-105">
+<span class="material-symbols-outlined text-3xl">add</span>
+</button>
+</div>
+</div>
+</body></html>

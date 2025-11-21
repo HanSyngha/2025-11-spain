@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+
+<html class="light" lang="ko"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Travel Itinerary</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#2b8cee",
+            "background-light": "#f6f7f8",
+            "background-dark": "#101922",
+          },
+          fontFamily: {
+            "display": ["Plus Jakarta Sans", "Noto Sans KR", "sans-serif"]
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="relative min-h-screen w-full flex flex-col">
+<!-- Top App Bar -->
+<header class="sticky top-0 z-10 flex items-center bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm p-4 pb-2 justify-between border-b border-gray-200 dark:border-gray-800">
+<div class="flex size-12 shrink-0 items-center justify-start">
+<span class="material-symbols-outlined text-[#111418] dark:text-gray-200">arrow_back</span>
+</div>
+<h1 class="text-[#111418] dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center">7월 26일 (금)</h1>
+<div class="flex w-12 items-center justify-end">
+<button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 w-10 bg-transparent text-[#111418] dark:text-gray-200">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+</header>
+<main class="flex-1 pb-24">
+<!-- Map -->
+<div class="px-4 py-3">
+<div class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl object-cover shadow-sm" data-alt="Map view showing pinned locations for the day's itinerary in Seoul" data-location="Seoul, South Korea" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBAD_ugVaB_m7oOspuKT_EtFNLgGTHCA-BPdL0CaeD0HIlgLnjatUfLYmcTty1tMLyNAaNxQwRJZoQklxfKhBl91VfYHDNO7R59w2NkvLFQ-x3TJGEQrjuPUeIQfQP6KEshGo-oelPRBiZUZ-ReO7ABOQKXK7Czh_3oTlBr7KvedrwLNz64hTK0vSis_Kxg_jXdYGCeCixYN478YEhmSjwX8lKRfeayffA25jXqHnnHI-WaJDumjLSz9sT1Kh_XhlmyxJ6riD9bBmTa");'></div>
+</div>
+<!-- Section Header -->
+<h2 class="text-[#111418] dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] px-4 pb-2 pt-4">Day 3 Itinerary</h2>
+<!-- Timeline -->
+<div class="grid grid-cols-[auto_1fr] gap-x-4 px-4">
+<!-- Item 1 -->
+<div class="flex flex-col items-center gap-1 pt-3">
+<div class="flex items-center justify-center size-10 bg-primary/20 rounded-full text-primary">
+<span class="material-symbols-outlined">museum</span>
+</div>
+<div class="w-[2px] bg-gray-200 dark:bg-gray-700 h-full"></div>
+</div>
+<div class="flex flex-1 flex-col py-3">
+<p class="text-gray-500 dark:text-gray-400 text-sm font-normal leading-normal">09:00 AM</p>
+<p class="text-[#111418] dark:text-white text-base font-medium leading-normal">국립중앙박물관 방문</p>
+</div>
+<!-- Item 2 -->
+<div class="flex flex-col items-center gap-1">
+<div class="w-[2px] bg-gray-200 dark:bg-gray-700 h-2 grow"></div>
+<div class="flex items-center justify-center size-10 bg-orange-500/20 rounded-full text-orange-500">
+<span class="material-symbols-outlined">restaurant</span>
+</div>
+<div class="w-[2px] bg-gray-200 dark:bg-gray-700 h-2 grow"></div>
+</div>
+<div class="flex flex-1 flex-col py-3">
+<p class="text-gray-500 dark:text-gray-400 text-sm font-normal leading-normal">12:30 PM</p>
+<p class="text-[#111418] dark:text-white text-base font-medium leading-normal">근처 맛집에서 점심 식사</p>
+</div>
+<!-- Item 3 -->
+<div class="flex flex-col items-center gap-1">
+<div class="w-[2px] bg-gray-200 dark:bg-gray-700 h-2 grow"></div>
+<div class="flex items-center justify-center size-10 bg-green-500/20 rounded-full text-green-500">
+<span class="material-symbols-outlined">directions_bike</span>
+</div>
+<div class="w-[2px] bg-gray-200 dark:bg-gray-700 h-2 grow"></div>
+</div>
+<div class="flex flex-1 flex-col py-3">
+<p class="text-gray-500 dark:text-gray-400 text-sm font-normal leading-normal">03:00 PM</p>
+<p class="text-[#111418] dark:text-white text-base font-medium leading-normal">한강 공원에서 자전거 타기</p>
+</div>
+<!-- Item 4 -->
+<div class="flex flex-col items-center gap-1">
+<div class="w-[2px] bg-gray-200 dark:bg-gray-700 h-2 grow"></div>
+<div class="flex items-center justify-center size-10 bg-purple-500/20 rounded-full text-purple-500">
+<span class="material-symbols-outlined">deck</span>
+</div>
+<div class="w-[2px] bg-gray-200 dark:bg-gray-700 h-2 grow"></div>
+</div>
+<div class="flex flex-1 flex-col py-3">
+<p class="text-gray-500 dark:text-gray-400 text-sm font-normal leading-normal">07:00 PM</p>
+<p class="text-[#111418] dark:text-white text-base font-medium leading-normal">N서울타워 야경 감상</p>
+</div>
+<!-- Item 5 -->
+<div class="flex flex-col items-center gap-1">
+<div class="w-[2px] bg-gray-200 dark:bg-gray-700 h-2 grow"></div>
+<div class="flex items-center justify-center size-10 bg-teal-500/20 rounded-full text-teal-500">
+<span class="material-symbols-outlined">bed</span>
+</div>
+</div>
+<div class="flex flex-1 flex-col py-3">
+<p class="text-gray-500 dark:text-gray-400 text-sm font-normal leading-normal">09:00 PM</p>
+<p class="text-[#111418] dark:text-white text-base font-medium leading-normal">"강남 호텔" 체크인 및 휴식</p>
+</div>
+</div>
+</main>
+<!-- Floating Action Button -->
+<div class="fixed bottom-0 right-0 p-5">
+<button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-14 w-14 bg-primary text-white text-base font-bold leading-normal tracking-[0.015em] shadow-lg hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 dark:focus:ring-offset-background-dark">
+<span class="material-symbols-outlined" style="font-size: 28px;">add</span>
+</button>
+</div>
+</div>
+</body></html>
