@@ -179,6 +179,7 @@ export const itinerary = [
                 description: "2인 예약 완료 (왕좌의 게임 촬영지)",
                 type: "ticket",
                 image: "/reservations/alcazar-ticket-haram-hwang.jpg",
+                subImages: ["/reservations/alcazar-ticket-syngha-han.jpg"],
                 coordinates: [37.3831, -5.9902]
             },
             {
@@ -322,6 +323,7 @@ export const itinerary = [
                 description: "나스르 궁전(Nasrid Palaces) 2인 예약 완료",
                 type: "ticket",
                 image: "/reservations/alhambra-ticket-haram-hwang.jpg",
+                subImages: ["/reservations/alhambra-ticket-syngha-han.jpg"],
                 coordinates: [37.1760, -3.5881]
             },
             {
