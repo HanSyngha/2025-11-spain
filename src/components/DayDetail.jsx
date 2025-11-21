@@ -1,100 +1,127 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { getImagePath } from '../utils/image';
+import MapComponent from './MapComponent';
 
 export default function DayDetail({ day, onBack, onImageClick }) {
+    const [mapCenter, setMapCenter] = useState(day.coordinates);
+    const [mapZoom, setMapZoom] = useState(13);
+
     // Helper to get icon based on event type
     const getIcon = (type) => {
         switch (type) {
             case 'flight': return 'flight';
-            case 'stay': return 'bed'; // Changed to 'bed' to match design
+            case 'stay': return 'bed';
             case 'drive': return 'directions_car';
             case 'car': return 'key';
             case 'ticket': return 'confirmation_number';
-            case 'activity': return 'camera_alt'; // Generic activity
+            case 'activity': return 'camera_alt';
             default: return 'circle';
         }
     };
 
-    // Helper to get color based on event type (using Tailwind classes)
+    // Helper to get color based on event type
     const getColorClass = (type) => {
         switch (type) {
-            case 'flight': return 'text-blue-500 bg-blue-500/20';
-            case 'stay': return 'text-teal-500 bg-teal-500/20';
-            case 'drive': return 'text-orange-500 bg-orange-500/20';
-            case 'car': return 'text-purple-500 bg-purple-500/20';
-            case 'ticket': return 'text-red-500 bg-red-500/20';
-            default: return 'text-primary bg-primary/20';
+            case 'flight': return 'text-blue-500 bg-blue-500/10 ring-1 ring-blue-500/20';
+            case 'stay': return 'text-teal-500 bg-teal-500/10 ring-1 ring-teal-500/20';
+            case 'drive': return 'text-orange-500 bg-orange-500/10 ring-1 ring-orange-500/20';
+            case 'car': return 'text-purple-500 bg-purple-500/10 ring-1 ring-purple-500/20';
+            case 'ticket': return 'text-red-500 bg-red-500/10 ring-1 ring-red-500/20';
+            default: return 'text-primary bg-primary/10 ring-1 ring-primary/20';
         }
     };
 
-    // Map image logic (simulated based on location)
-    const getMapImage = (location) => {
-        // In a real app, this would be dynamic. Using placeholders for now.
-        return 'https://lh3.googleusercontent.com/aida-public/AB6AXuBAD_ugVaB_m7oOspuKT_EtFNLgGTHCA-BPdL0CaeD0HIlgLnjatUfLYmcTty1tMLyNAaNxQwRJZoQklxfKhBl91VfYHDNO7R59w2NkvLFQ-x3TJGEQrjuPUeIQfQP6KEshGo-oelPRBiZUZ-ReO7ABOQKXK7Czh_3oTlBr7KvedrwLNz64hTK0vSis_Kxg_jXdYGCeCixYN478YEhmSjwX8lKRfeayffA25jXqHnnHI-WaJDumjLSz9sT1Kh_XhlmyxJ6riD9bBmTa';
+    const handleEventClick = (event) => {
+        if (event.coordinates) {
+            setMapCenter(event.coordinates);
+            setMapZoom(15);
+        }
     };
 
     return (
-        <div className="flex flex-col h-full">
-            {/* Map Section */}
-            <div className="px-4 py-3">
-                <div
-                    className="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl object-cover shadow-sm"
-                    style={{ backgroundImage: `url("${getMapImage(day.location)}")` }}
-                ></div>
+        <div className="flex flex-col h-full bg-background-light dark:bg-background-dark">
+            {/* Map Section - Fixed Height */}
+            <div className="sticky top-0 z-0 w-full h-[280px] shrink-0 shadow-sm">
+                <MapComponent
+                    events={day.events}
+                    center={mapCenter}
+                    zoom={mapZoom}
+                />
             </div>
 
-            {/* Section Header */}
-            <h2 className="text-text-light dark:text-text-dark text-lg font-bold leading-tight tracking-[-0.015em] px-4 pb-2 pt-4">
-                {day.title}
-            </h2>
+            {/* Content Section - Scrollable */}
+            <div className="flex-1 overflow-y-auto bg-background-light dark:bg-background-dark relative z-10 -mt-4 rounded-t-3xl border-t border-gray-100 dark:border-gray-800 shadow-[0_-4px_12px_-2px_rgba(0,0,0,0.08)]">
+                {/* Section Header */}
+                <div className="px-6 pt-8 pb-4">
+                    <div className="flex items-center justify-between mb-1">
+                        <h2 className="text-text-light dark:text-text-dark text-2xl font-bold leading-tight tracking-tight">
+                            {day.title}
+                        </h2>
+                    </div>
+                    <p className="text-subtext-light dark:text-subtext-dark text-sm font-medium flex items-center gap-1">
+                        <span className="material-symbols-outlined text-base">calendar_today</span>
+                        {day.date}
+                    </p>
+                </div>
 
-            {/* Timeline */}
-            <div className="grid grid-cols-[auto_1fr] gap-x-4 px-4 pb-8">
-                {day.events.map((event, index) => {
-                    const isLast = index === day.events.length - 1;
-                    const colorClass = getColorClass(event.type);
+                {/* Timeline */}
+                <div className="grid grid-cols-[auto_1fr] gap-x-5 px-6 pb-12">
+                    {day.events.map((event, index) => {
+                        const isLast = index === day.events.length - 1;
+                        const colorClass = getColorClass(event.type);
 
-                    return (
-                        <React.Fragment key={index}>
-                            {/* Timeline Line & Icon */}
-                            <div className="flex flex-col items-center gap-1 pt-1">
-                                {index === 0 && <div className="h-3"></div>} {/* Top spacing for first item */}
+                        return (
+                            <React.Fragment key={index}>
+                                {/* Timeline Line & Icon */}
+                                <div className="flex flex-col items-center pt-1 relative">
+                                    {/* Connector Line */}
+                                    {!isLast && (
+                                        <div className="absolute top-10 bottom-[-8px] w-[2px] bg-gray-100 dark:bg-gray-800"></div>
+                                    )}
 
-                                <div className={`flex items-center justify-center size-10 rounded-full ${colorClass}`}>
-                                    <span className="material-symbols-outlined">{getIcon(event.type)}</span>
+                                    <button
+                                        onClick={() => handleEventClick(event)}
+                                        className={`flex items-center justify-center size-10 rounded-full ${colorClass} z-10 transition-transform active:scale-95 shadow-sm shrink-0`}
+                                    >
+                                        <span className="material-symbols-outlined text-xl">{getIcon(event.type)}</span>
+                                    </button>
                                 </div>
 
-                                {!isLast && (
-                                    <div className="w-[2px] bg-gray-200 dark:bg-gray-700 h-full min-h-[2rem]"></div>
-                                )}
-                            </div>
+                                {/* Content */}
+                                <div
+                                    className="flex flex-col py-1 pb-8 cursor-pointer group min-w-0"
+                                    onClick={() => handleEventClick(event)}
+                                >
+                                    <div className="flex items-baseline gap-2 mb-1">
+                                        <p className="text-subtext-light dark:text-subtext-dark text-xs font-bold font-mono tracking-wide uppercase opacity-70">
+                                            {event.time}
+                                        </p>
+                                    </div>
 
-                            {/* Content */}
-                            <div className="flex flex-1 flex-col py-3 pb-6">
-                                <p className="text-subtext-light dark:text-subtext-dark text-sm font-normal leading-normal">
-                                    {event.time}
-                                </p>
-                                <p className="text-text-light dark:text-text-dark text-base font-medium leading-normal">
-                                    {event.title}
-                                </p>
-                                <p className="text-subtext-light dark:text-subtext-dark text-sm mt-1">
-                                    {event.description}
-                                </p>
+                                    <div className="p-4 rounded-2xl bg-card-light dark:bg-card-dark border border-gray-100 dark:border-gray-800 shadow-sm group-hover:shadow-md group-hover:border-primary/30 transition-all">
+                                        <p className="text-text-light dark:text-text-dark text-base font-bold leading-snug group-hover:text-primary transition-colors break-words">
+                                            {event.title}
+                                        </p>
+                                        <p className="text-subtext-light dark:text-subtext-dark text-sm mt-1.5 leading-relaxed break-words text-pretty">
+                                            {event.description}
+                                        </p>
 
-                                {/* Reservation Button */}
-                                {event.image && (
-                                    <button
-                                        onClick={() => onImageClick(event)}
-                                        className="mt-2 self-start px-3 py-1.5 bg-primary/10 text-primary text-sm font-medium rounded-lg hover:bg-primary/20 transition-colors flex items-center gap-1"
-                                    >
-                                        <span className="material-symbols-outlined text-base">confirmation_number</span>
-                                        예약 확인
-                                    </button>
-                                )}
-                            </div>
-                        </React.Fragment>
-                    );
-                })}
+                                        {/* Reservation Button */}
+                                        {event.image && (
+                                            <button
+                                                onClick={(e) => { e.stopPropagation(); onImageClick(event); }}
+                                                className="mt-3 w-full py-2.5 bg-primary/5 hover:bg-primary/10 text-primary text-sm font-bold rounded-xl transition-colors flex items-center justify-center gap-2 border border-primary/10"
+                                            >
+                                                <span className="material-symbols-outlined text-lg">confirmation_number</span>
+                                                <span>예약 확인</span>
+                                            </button>
+                                        )}
+                                    </div>
+                                </div>
+                            </React.Fragment>
+                        );
+                    })}
+                </div>
             </div>
         </div>
     );
